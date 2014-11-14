@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Drawing;
 using LocTracker.Properties;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace SystemTrayApp
 {
@@ -62,8 +64,11 @@ namespace SystemTrayApp
 		/// <param name="e">The <see cref="System.EventArgs"/> instance containing the event data.</param>
 		void Explorer_Click(object sender, EventArgs e)
 		{
-			Process.Start("explorer", null);
+            LocTracker.Domain.Service.IpLocationService.GetIpLocation().Wait();
+
 		}
+
+
 
 		/// <summary>
 		/// Handles the Click event of the About control.

@@ -33,8 +33,8 @@ namespace LocTracker
         {
             // Put the icon in the system tray and allow it react to mouse clicks.			
             ni.MouseClick += new MouseEventHandler(ni_MouseClick);
-            ni.Icon = Resources.SystemTrayApp;
-            ni.Text = "System Tray Utility Application Demonstration Program";
+            ni.Icon = Resources.LocTracker;
+            ni.Text = "Location Tracker";
             ni.Visible = true;
 
             // Attach a context menu.

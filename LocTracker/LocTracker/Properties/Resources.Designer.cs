@@ -93,9 +93,9 @@ namespace LocTracker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
-        internal static System.Drawing.Icon SystemTrayApp {
+        internal static System.Drawing.Icon LocTracker {
             get {
-                object obj = ResourceManager.GetObject("SystemTrayApp", resourceCulture);
+                object obj = ResourceManager.GetObject("LocTracker", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using SystemTrayApp.Properties;
 using System.Drawing;
+using LocTracker.Properties;
 
 namespace SystemTrayApp
 {
@@ -75,8 +75,8 @@ namespace SystemTrayApp
 			if (!isAboutLoaded)
 			{
 				isAboutLoaded = true;
-				new AboutBox().ShowDialog();
-				isAboutLoaded = false;
+				//new AboutBox().ShowDialog();
+			//	isAboutLoaded = false;
 			}
 		}
 

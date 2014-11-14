@@ -12,30 +12,34 @@ namespace LocTracker.Domain.Service
 {
     public class IpLocationService 
     {
-        public static async Task GetIpLocation()
+        public async Task<IpLocation> GetIpLocation()
         {
-            using (var client = new HttpClient())
+            IpLocation loc = new IpLocation();
+            try
             {
-                client.BaseAddress = new Uri("http://freegeoip.net/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage response = client.GetAsync("json").Result;
-
-                string result = response.Content.ReadAsStringAsync().Result;
-
-                if (response.IsSuccessStatusCode)
+                using (var client = new HttpClient())
                 {
-                    
-                    IpLocation loc = JsonConvert.DeserializeObject<IpLocation>(result);
+                    client.BaseAddress = new Uri("http://freegeoip.net/");
+                    client.DefaultRequestHeaders.Accept.Clear();
+                    client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                    IpLocation ip = response.Content.ReadAsAsync<IpLocation>().Result;
-                    Console.WriteLine("{0}\t${1}\t{2}", ip.IP , ip.Country_Name, loc.ZipCode);
+                    HttpResponseMessage response = client.GetAsync("json").Result;
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    if (response.IsSuccessStatusCode)
+                    {
+                         loc = JsonConvert.DeserializeObject<IpLocation>(result);
+                    }
                 }
+             }
+            catch (HttpRequestException)
+            {
+                // ToDo:Handle exception.
             }
+            catch (Exception)
+            {
+                //ToDo Handle general exception
+            }
+            return loc;
         }
-
-
-       
     }
 }

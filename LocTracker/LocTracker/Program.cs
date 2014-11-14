@@ -1,6 +1,8 @@
-﻿using System;
+﻿using LocTracker.Domain.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,9 +20,12 @@ namespace LocTracker
             using (ProcessIcon pi = new ProcessIcon())
             {
                 pi.Display();
+                
 
                 // Make sure the application runs!
                 Application.Run();
+
+             
             }
         }
     }

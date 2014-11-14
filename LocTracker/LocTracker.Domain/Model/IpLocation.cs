@@ -11,6 +11,19 @@ namespace LocTracker.Domain.Model
     [XmlRoot("IpLocation")]
     public class IpLocation
     {
+        public IpLocation()
+        {
+            this.IP= string.Empty;
+            this.Country_Code= string.Empty;
+            this.Country_Name= string.Empty;
+            this.City= string.Empty;
+            this.ZipCode= string.Empty;
+            this.Latitude= string.Empty;
+            this.Longitude= string.Empty;
+            this.Region_Name= string.Empty;
+            this.Metro_Code= string.Empty;
+            this.Areaode = string.Empty;
+        }
         [XmlElement("ip")]
         public string IP { get; set; }
         [XmlElement("country_code")]
